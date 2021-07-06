@@ -1,0 +1,55 @@
+.tabella {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: 100%;
+  max-width: 1140px;
+}
+.text-center {
+  text-align: center;
+}
+.pointer {
+  cursor: pointer;
+}
+.left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.right {
+  width: 50%;
+}
+.left form {
+  max-width: 400px;
+}
+.float-left {
+  float: left;
+}
+.right .close-button {
+  position: fixed;
+  top: 12vh;
+  right: 4vw;
+}
+.cover {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.immagine {
+  width: 40%;
+  margin: auto;
+}
+.shrink {
+  flex: 1 0 0;
+}
+.pt-4 {
+  padding-top: 2em;
+}

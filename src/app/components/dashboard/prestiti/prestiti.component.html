@@ -1,0 +1,52 @@
+    <div class="overlay" *ngIf="booleano">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="centered">
+        <table mat-table [dataSource]="prestitiobj" class="mat-elevation-z8">
+    
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <!-- Name Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Utente">
+            <th mat-header-cell *matHeaderCellDef> Utente </th>
+            <td mat-cell *matCellDef="let element"> {{element.user_id}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Libro">
+            <th mat-header-cell *matHeaderCellDef> Libro </th>
+            <td mat-cell *matCellDef="let element"> {{element.book_id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="Inizio_prestito">
+            <th mat-header-cell *matHeaderCellDef> Inizio Prestito </th>
+            <td mat-cell *matCellDef="let element"> {{element.prestato_il}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Restituzione">
+            <th mat-header-cell *matHeaderCellDef> Restituzione </th>
+            <td mat-cell *matCellDef="let element"> {{element.restituito}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="azione" class="pointer">
+            <th mat-header-cell *matHeaderCellDef>Invia una mail per restituire il libro domani</th>
+            <td mat-cell  *matCellDef="let element" (click)="sendMail(element)" class="text-right">
+            <a class="pointer">
+                <mat-icon>forward_to_inbox</mat-icon>
+            </a>
+            </td>
+    
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>

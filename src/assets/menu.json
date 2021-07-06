@@ -1,0 +1,10 @@
+[
+  {
+    "voce": "Bacheca",
+    "redirect": "/dashboard"
+  },
+  {
+    "voce": "Prestito",
+    "redirect": "prestiti"
+  }
+]

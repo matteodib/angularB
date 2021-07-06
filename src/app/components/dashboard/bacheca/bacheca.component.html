@@ -1,0 +1,61 @@
+<div class="tabella" *ngIf="!bool">
+  <table mat-table [dataSource]="books" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <!-- Name Column -->
+    <ng-container matColumnDef="titolo">
+      <th mat-header-cell *matHeaderCellDef> Titolo </th>
+      <td mat-cell *matCellDef="let element"> {{element.titolo}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="anno_pubb">
+      <th mat-header-cell *matHeaderCellDef> Anno di pubblicazione </th>
+      <td mat-cell *matCellDef="let element"> {{element.anno_pubb}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="isbn">
+      <th mat-header-cell *matHeaderCellDef> ISBN </th>
+      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Prendi in prestito </th>
+      <td mat-cell  *matCellDef="let element" class="text-right">
+        <a class="pointer" (click)="getBook(element.id)">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </a>
+      </td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+</div>
+<div class="cover" *ngIf="bool">
+  <h1 class="w-100 text-center pt-4">Prendi in prestito {{selectedBook.titolo}}</h1><br>
+  <div class="left float-left">
+    <form [formGroup]="prestito" class="form-prestito" (ngSubmit)="setPrestito()">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Libro</mat-label>
+        <mat-select [(value)]="selectedSelect">
+          <mat-option value="{{selectedBook.id}}">{{selectedBook.titolo}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2>Breve trama</h2>
+      <p>{{selectedBook.trama}}</p>
+      <button mat-raised-button color="primary" class="w-100">Prendi in prestito</button>
+    </form>
+  </div>
+  <div class="right float-left">
+    <div class="close-button"><a class="pointer" (click)="closePrestito()"><mat-icon>close</mat-icon></a></div>
+    <img src="./assets/img/{{selectedCopertina}}" class="immagine">
+  </div>
+</div>

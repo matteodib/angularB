@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <span>My Application</span>
+  <span class="example-spacer"></span>
+  <button *ngFor="let item of voci" mat-raised-button [routerLink]="item.redirect" color="primary" class="mx-2">{{item.voce}}</button>
+  <span class="example-spacer"></span>
+  <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" routerLink="/logout" class="pointer">logout</mat-icon>
+
+</mat-toolbar>
